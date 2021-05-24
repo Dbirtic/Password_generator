@@ -86,8 +86,10 @@ function generatePassword(length, lower, upper, number, symbol){
     const finalPassword = generatedPassword.slice(0, length);
 
     // TODO: shuffle final password to be as random as possible
+    //console.log(finalPassword.length);
+    const randomizedPassword = randomize(finalPassword);
 
-    return finalPassword;
+    return randomizedPassword;
 }
 
 
@@ -105,4 +107,23 @@ function getRandomNumber(){
 function getRandomSymbols(){
     const symbols = '\|€÷×¤ßŁł][@{}§<>_-:;,.+?*=)(/&%$#"!~ˇ^˘°˛˙˝';
     return symbols[(Math.floor(Math.random() * symbols.length))];
+}
+
+function randomize(array){
+    let temp;
+    let temp_array = [];
+    temp_array.length = array.length;
+
+    for(let i = 0; i < array.length; i++)
+    {
+        temp = Math.floor(Math.random() * 20);
+        temp_array[temp] = array[i];
+        if(temp_array[i] === undefined)
+        {
+            temp_array[i] = array[temp];
+        }
+        console.log(temp_array[i]);
+    }
+    temp = temp_array.join("");
+    return temp;
 }
