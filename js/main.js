@@ -85,6 +85,8 @@ function generatePassword(length, lower, upper, number, symbol){
 
     const finalPassword = generatedPassword.slice(0, length);
 
+    // TODO: shuffle final password to be as random as possible
+
     return finalPassword;
 }
 
